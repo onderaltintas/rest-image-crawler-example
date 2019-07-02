@@ -1,3 +1,6 @@
+# important notice
+indentation problem occured when i put codes on githup. Probably Microsoft sabotage. 
+
 # rest-image-crawler-example
 Simple example of rest image crawler. For everyun from boxxy.
 Greetings,
