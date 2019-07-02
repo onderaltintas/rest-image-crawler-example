@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Creates an instance of FileManager.
  * @class
  * @classdesc Manages file activities.
@@ -40,31 +40,30 @@ var FileManager = function () {
       }
     });
   };
-	
+
   /**
   * Writes data to file with given filename, if user requires, gzips the file the same folder.
   * @param {string} path - File path.
   * @param {string} data - Data content to be written inside the file.
-  */ 
-  this.writeToFile = function(path,data)
-  {
-    fs.exists(path, function(exists) { 
-        if (exists) { 
-					fs.appendFile(path, data, "utf8", function(err) {
-						if(err) {
-							console.log(err.message);
-							console.log("problemo problemo on appending file");
-						}
-					});
-        } else {
-					fs.writeFile(path, data, "utf8", function(err) {
-						if(err) {
-							console.log(err.message);
-							console.log("problemo problemo on writing file");
-						}
-					});
-        }
-    }); 
+  */
+  this.writeToFile = function (path, data) {
+    fs.exists(path, function (exists) {
+      if (exists) {
+        fs.appendFile(path, data, "utf8", function (err) {
+          if (err) {
+            console.log(err.message);
+            console.log("problemo problemo on appending file");
+          }
+        });
+      } else {
+        fs.writeFile(path, data, "utf8", function (err) {
+          if (err) {
+            console.log(err.message);
+            console.log("problemo problemo on writing file");
+          }
+        });
+      }
+    });
   };
 
 
