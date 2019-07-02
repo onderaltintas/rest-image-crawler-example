@@ -60,11 +60,11 @@ var AvatarProxy = function () {
     });
   }
 
-   /**
-  * Saves avatar file to the file system.
-  * @param {string} avatarUrl - Filename of the avatar.
-  * @param {binary} avatar - Avatar data as binary.
-  */ 
+  /**
+ * Saves avatar file to the file system.
+ * @param {string} avatarUrl - Filename of the avatar.
+ * @param {binary} avatar - Avatar data as binary.
+ */
   this.saveAvatar = function (fileName, avatar) {
     fileManager.writeToImageFile("./images/" + fileName, avatar);
   }
@@ -72,9 +72,9 @@ var AvatarProxy = function () {
   /**
   * Deletes avatar.
   * @param {string} id - Id of the avatar.
-  */ 
+  */
   this.deleteAvatar = function (id) {
-    fileManager.deleteFile("./images"+id+"jpg");
+    fileManager.deleteFile("./images" + id + "jpg");
   }
 
   var self = this;
