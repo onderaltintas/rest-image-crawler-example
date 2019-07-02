@@ -12,9 +12,9 @@ var MainWebServiceManager = function (router) {
   var https = require('https');
   var AvatarProxy = require("../util/avatarproxy.js");
   var avatarProxy = new AvatarProxy();
-	var FileManager = require("../util/filemanager.js");
-	var fileManager = new FileManager();
-	var usersListPage = 0;
+  var FileManager = require("../util/filemanager.js");
+  var fileManager = new FileManager();
+  var usersListPage = 0;
 
   /**
    * Starts web services defined inside.
@@ -26,7 +26,7 @@ var MainWebServiceManager = function (router) {
     setService('get', '/api/user/:userId', getUserByUserId);
     // get for http://localhost:3000/api/user/{userId}/avatar :
     setService('get', '/api/user/:userId/avatar', getAvatarByUserId);
-		// get for http://localhost:3000/api/getUsersList :
+    // get for http://localhost:3000/api/getUsersList :
     setService('get', '/api/getUsersList', getUsersList);
     // delete for http://localhost:3000/api/user/{userId}/avatar :
     setService('delete', '/api/user/:userId/avatar', deleteUserByUserId);
@@ -118,25 +118,25 @@ var MainWebServiceManager = function (router) {
     avatarProxy.deleteAvatar(req.params['userId']);
     res.json({ message: "Working!" });
   };
-	
+
 	/**
 	* Gets the users list and save it to a file as json.
 	*/
   var getUsersList = function (req, res, next) {
-		usersListPage++;
-		var url = "https://reqres.in/api/users?page=" + usersListPage;
-		https.get(url, function (response) {
-			var body = '';
+    usersListPage++;
+    var url = "https://reqres.in/api/users?page=" + usersListPage;
+    https.get(url, function (response) {
+      var body = '';
       response.on('data', function (chunk) {
         body += chunk;
       });
 
       response.on('end', function () {
-				var result = JSON.stringify(JSON.parse(body).data);
+        var result = JSON.stringify(JSON.parse(body).data);
         fileManager.writeToFile('./users/users.txt', result);
-				res.send("done");
+        res.send("done");
       });
-		})
+    })
   };
 
   var self = this;
